@@ -1,0 +1,64 @@
+<div
+  class="h-100 d-flex flex-column align-items-center justify-content-center"
+>
+  <div class="button_container d-flex justify-content-end">
+    <button class="btn btn-secondary my-3" (click)="form()">Adicionar empresa</button>
+  </div>
+
+  <div class="table_container">
+    <table mat-table class="mat-elevation-z8" mat-table [dataSource]="companies">
+
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> CODE </th>
+        <td mat-cell *matCellDef="let company"> {{ company.code }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+        <td mat-cell *matCellDef="let company"> {{ company.name }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cnpj">
+        <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+        <td mat-cell *matCellDef="let company"> {{ company.cnpj }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+        <td mat-cell *matCellDef="let company"> {{ company.email }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> TELEFONE </th>
+        <td mat-cell *matCellDef="let company"> {{ company.phone }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> ENDEREÇO </th>
+        <td mat-cell *matCellDef="let company"> {{ company.address }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> AÇÕES </th>
+        <td mat-cell *matCellDef="let company">
+          <div class="d-flex flex-row align-items-center justify-content-center">
+            <div class="m-1 h-100">
+              <mat-icon class="table_icons" (click)="form(company)">
+                edit
+              </mat-icon>
+            </div>
+            <div class="m-1 h-100">
+              <mat-icon class="table_icons text-danger" (click)="openDeleteDialog(company)">
+                delete
+              </mat-icon>
+            </div>
+          </div>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

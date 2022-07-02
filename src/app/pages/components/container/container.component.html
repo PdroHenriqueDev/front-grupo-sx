@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+
+<mat-drawer-container class="example-container w-100">
+  <mat-drawer mode="side" opened class="side_bar">
+    <div class="icons-container mt-3">
+      <div class="icon d-flex flex-row align-items-center m-4">
+        <mat-icon class="m-1" style="color: rgb(0, 0, 0);">home</mat-icon>
+        <span routerLink="/" >Início</span>
+      </div>
+
+      <div class="icon d-flex flex-row align-items-center m-4">
+        <mat-icon class="m-1" style="color: rgb(0, 0, 0);">business_center</mat-icon>
+        <span routerLink="/company">Empresas</span>
+      </div>
+
+      <div class="icon d-flex flex-row align-items-center m-4">
+        <mat-icon style="color: rgb(0, 0, 0);">person</mat-icon>
+        <span routerLink="/collaborator">Colaboradores</span>
+      </div>
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>

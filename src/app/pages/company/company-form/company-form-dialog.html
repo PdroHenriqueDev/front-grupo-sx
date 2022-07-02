@@ -1,0 +1,65 @@
+<div class="form-container">
+  <form
+    (ngSubmit)="save()"
+    [formGroup]="companyForm"
+    class="d-flex flex-column justify-content-center align-items-center"
+  >
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">CNPJ</mat-label>
+      <input class="form-control" formControlName="cnpj">
+    </div>
+    <div
+    *ngIf="companyForm.controls['cnpj'].errors && companyForm.controls['cnpj'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">*Precisa ser preenchido com 14 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">NOME</mat-label>
+      <input class="form-control" formControlName="name">
+    </div>
+    <div
+    *ngIf="companyForm.controls['name'].errors && companyForm.controls['name'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">*Precisa ser preenchido entre 3 e 50 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">EMAIL</mat-label>
+      <input class="form-control" formControlName="email">
+    </div>
+    <div
+    *ngIf="companyForm.controls['email'].errors && companyForm.controls['email'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">*Precisa ser preenchido entre 10 a 150 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">TELEFONE</mat-label>
+      <input class="form-control" type="text" formControlName="phone">
+    </div>
+    <div
+    *ngIf="companyForm.controls['phone'].errors && companyForm.controls['phone'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">Precisa ser preenchido!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">ENDEREÇO</mat-label>
+      <input class="form-control" type="text" formControlName="address">
+    </div>
+    <div
+    *ngIf="companyForm.controls['address'].errors && companyForm.controls['address'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">Precisa ser preenchido com mais de 5 caracteres!</p>
+    </div>
+
+    <button class="btn btn-success mt-3" type="submit">{{data ? 'Editar Produto' : 'Adicionar produto'}}</button>
+  </form>
+</div>
+

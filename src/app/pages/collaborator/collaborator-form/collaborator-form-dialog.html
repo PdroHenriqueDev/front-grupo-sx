@@ -1,0 +1,79 @@
+<div class="form-container">
+  <form
+    (ngSubmit)="save()"
+    [formGroup]="collaboratorForm"
+    class="d-flex flex-column justify-content-center align-items-center"
+  >
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">CPF</mat-label>
+      <input class="form-control" formControlName="cpf">
+    </div>
+    <div
+    *ngIf="collaboratorForm.controls['cpf'].errors && collaboratorForm.controls['cpf'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">*Precisa ser preenchido com 14 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">NOME</mat-label>
+      <input class="form-control" formControlName="name">
+    </div>
+    <div
+    *ngIf="collaboratorForm.controls['name'].errors && collaboratorForm.controls['name'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">*Precisa ser preenchido entre 3 e 50 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">EMAIL</mat-label>
+      <input class="form-control" formControlName="email">
+    </div>
+    <div
+    *ngIf="collaboratorForm.controls['email'].errors && collaboratorForm.controls['email'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">*Precisa ser preenchido entre 10 a 150 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">TELEFONE</mat-label>
+      <input class="form-control" type="text" formControlName="phone">
+    </div>
+    <div
+    *ngIf="collaboratorForm.controls['phone'].errors && collaboratorForm.controls['phone'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">Precisa ser preenchido!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">ENDEREÇO</mat-label>
+      <input class="form-control" type="text" formControlName="address">
+    </div>
+    <div
+    *ngIf="collaboratorForm.controls['address'].errors && collaboratorForm.controls['address'].touched"
+    class="my-1 w-100"
+    >
+      <p class="text-danger text-left h6">Precisa ser preenchido com mais de 5 caracteres!</p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-start w-100">
+      <mat-label class="my-2 h6">Empresa</mat-label>
+      <select formControlName="company">
+        <option selected value=""> Escolhar uma empresa</option>
+        <option *ngIf="!companies.length">Nenhuma empresa cadastrada!</option>
+        <option *ngFor="let company of companies" [value]="company.code">{{ company.name }}</option>
+      </select>
+    </div>
+    <div
+    *ngIf="collaboratorForm.controls['company'].errors && collaboratorForm.controls['company'].touched"
+    class="my-1 w-100"
+    >
+    </div>
+
+    <button class="btn btn-success mt-3" type="submit">{{data ? 'Editar Produto' : 'Adicionar produto'}}</button>
+  </form>
+</div>
+

@@ -1,0 +1,25 @@
+.table_container {
+  height: 80%;
+  width: 90%;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  overflow-y: auto;
+  margin-bottom: 0;
+}
+
+td, th {
+  width: 20%;
+}
+
+.button_container {
+  width: 90%;
+}
+
+.table_icons {
+  font-size: 25px;
+  cursor: pointer;
+}
+

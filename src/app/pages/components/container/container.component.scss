@@ -1,0 +1,16 @@
+.example-container {
+  height: 88%;
+  margin: 0;
+  .side_bar {
+    width: 175px;
+    .icon {
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  border-right: 2px solid #000;
+}
+
+
